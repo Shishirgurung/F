@@ -1,0 +1,371 @@
+/* Safe Ad System Styles */
+
+/* Ad Container Base Styles */
+.ad-container {
+  position: relative;
+  margin: 20px 0;
+  text-align: center;
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.ad-container.loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* Ad Placeholder Styles */
+.ad-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 90px;
+  color: #6c757d;
+  font-size: 14px;
+  font-weight: 500;
+  background: #f8f9fa;
+  border: 2px dashed #dee2e6;
+  border-radius: 6px;
+  margin: 10px;
+}
+
+.ad-fallback {
+  opacity: 0.7;
+  background: #fff3cd;
+  border-color: #ffeaa7;
+}
+
+/* Responsive Ad Sizes */
+
+/* Top Banner - 728x90 (Desktop) / 320x50 (Mobile) */
+.ad-banner-top {
+  width: 100%;
+  max-width: 728px;
+  height: 90px;
+  margin: 0 auto 20px;
+}
+
+@media (max-width: 768px) {
+  .ad-banner-top {
+    max-width: 320px;
+    height: 50px;
+  }
+}
+
+/* Sidebar Rectangle - 300x250 */
+.ad-sidebar {
+  width: 300px;
+  height: 250px;
+  margin: 20px 0;
+  position: sticky;
+  top: 20px;
+}
+
+@media (max-width: 1200px) {
+  .ad-sidebar {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 20px auto;
+  }
+}
+
+/* In-Content Square - 300x300 */
+.ad-square {
+  width: 300px;
+  height: 300px;
+  margin: 30px auto;
+  float: none;
+}
+
+@media (max-width: 768px) {
+  .ad-square {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+/* Mobile Banner - 320x100 */
+.ad-mobile-banner {
+  width: 100%;
+  max-width: 320px;
+  height: 100px;
+  margin: 15px auto;
+}
+
+/* Sticky Bottom Ad */
+.ad-sticky-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  background: white;
+  border-top: 1px solid #e9ecef;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-sticky-bottom .ad-close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ad-sticky-bottom .ad-close:hover {
+  background: #c82333;
+}
+
+/* Consent Modal Styles */
+.ad-consent-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.ad-consent-content {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 500px;
+  margin: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.ad-consent-content h3 {
+  margin: 0 0 15px;
+  color: #333;
+  font-size: 24px;
+}
+
+.ad-consent-content p {
+  margin: 0 0 25px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.ad-consent-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.consent-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 100px;
+}
+
+.consent-btn.accept {
+  background: #28a745;
+  color: white;
+}
+
+.consent-btn.accept:hover {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+.consent-btn.decline {
+  background: #6c757d;
+  color: white;
+}
+
+.consent-btn.decline:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+}
+
+/* Ad Performance Indicator */
+.ad-performance {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  font-size: 12px;
+  z-index: 9999;
+  display: none;
+}
+
+.ad-performance.show {
+  display: block;
+}
+
+/* Aviation Theme Integration */
+.ad-container.aviation-theme {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  color: white;
+}
+
+.ad-container.aviation-theme .ad-placeholder {
+  background: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ad-container {
+    margin: 15px 0;
+  }
+  
+  .ad-consent-content {
+    padding: 20px;
+    margin: 10px;
+  }
+  
+  .ad-consent-buttons {
+    flex-direction: column;
+  }
+  
+  .consent-btn {
+    width: 100%;
+  }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  .ad-container {
+    background: #2d3748;
+    border-color: #4a5568;
+  }
+  
+  .ad-placeholder {
+    background: #4a5568;
+    border-color: #718096;
+    color: #e2e8f0;
+  }
+  
+  .ad-consent-content {
+    background: #2d3748;
+    color: #e2e8f0;
+  }
+  
+  .ad-consent-content h3 {
+    color: #f7fafc;
+  }
+  
+  .ad-consent-content p {
+    color: #cbd5e0;
+  }
+}
+
+/* Print Styles - Hide ads when printing */
+@media print {
+  .ad-container,
+  .ad-sticky-bottom,
+  .ad-consent-modal {
+    display: none !important;
+  }
+}
+
+/* Accessibility */
+.ad-container:focus-within {
+  outline: 2px solid #4299e1;
+  outline-offset: 2px;
+}
+
+/* Animation for ad loading */
+.ad-container.fade-in {
+  animation: adFadeIn 0.5s ease-in-out;
+}
+
+@keyframes adFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Error state */
+.ad-container.error {
+  background: #fed7d7;
+  border-color: #feb2b2;
+}
+
+.ad-container.error .ad-placeholder {
+  color: #c53030;
+  background: transparent;
+}
+
+/* Success state */
+.ad-container.loaded {
+  background: transparent;
+  border: none;
+}
+
+/* Ad label for transparency */
+.ad-label {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: rgba(0,0,0,0.6);
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Hover effects */
+.ad-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.ad-container.no-hover:hover {
+  transform: none;
+  box-shadow: none;
+}

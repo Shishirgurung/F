@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Inter', sans-serif;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #2d3748;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #4a5568;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #718096;
+}
+
+/* Mapbox overrides */
+.mapboxgl-popup-content {
+  @apply rounded-lg shadow-lg bg-gray-900 text-white border border-gray-700;
+  padding: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+.mapboxgl-popup-close-button {
+  @apply text-gray-400 hover:text-white;
+  font-size: 18px;
+  padding: 4px;
+}
+
+.mapboxgl-popup-tip {
+  border-top-color: #374151 !important;
+}
+
+/* Flight marker styles */
+.flight-marker {
+  transition: all 0.2s ease;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.flight-marker:hover {
+  transform: scale(1.2) !important;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+/* Flight popup styles */
+.flight-popup {
+  min-width: 200px;
+}
+
+.flight-popup .font-semibold {
+  color: #fbbf24;
+  margin-bottom: 4px;
+}
+
+.flight-popup .text-gray-600 {
+  color: #9ca3af;
+}
+
+/* Mapbox control overrides for dark theme */
+.mapboxgl-ctrl-group {
+  @apply bg-gray-900 border-gray-700;
+}
+
+.mapboxgl-ctrl-group button {
+  @apply bg-gray-900 text-white border-gray-700;
+}
+
+.mapboxgl-ctrl-group button:hover {
+  @apply bg-gray-800;
+}
+
+/* Custom map loading animation */
+.map-loading {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+}
+
+/* Custom animations */
+@keyframes airplane-fly {
+  0% { transform: translateX(-100px) rotate(45deg); }
+  100% { transform: translateX(100px) rotate(45deg); }
+}
+
+.airplane-animation {
+  animation: airplane-fly 3s linear infinite;
+}
+
+/* Loading spinner */
+.loading-spinner {
+  border: 3px solid #f3f3f3;
+  border-top: 3px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Pulse effect for live data */
+.pulse-live {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: .5;
+  }
+}
